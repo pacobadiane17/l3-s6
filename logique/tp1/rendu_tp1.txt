@@ -1,0 +1,69 @@
+TP effectué par Eddy El Khatib et Pape Badiane
+
+/////////////////SALLE 1///////////////
+
+Arbre Salle 1 :
+
+[trace]  ?- salle1(X,Y).
+ T Call: (6) salle1(_G3538, _G3539)
+   Call: (6) salle1(_G3538, _G3539) ? creep
+   Call: (7) pancarte1(_G3538, _G3539) ? creep
+   Call: (8) contenu(_G3539) ? creep
+   Exit: (8) contenu(princesse) ? creep
+   Exit: (7) pancarte1(tigre, princesse) ? creep
+   Call: (7) pancarte2(tigre, princesse) ? creep
+   Fail: (7) pancarte2(tigre, princesse) ? creep
+   Redo: (8) contenu(_G3539) ? creep
+   Exit: (8) contenu(tigre) ? creep
+   Exit: (7) pancarte1(tigre, tigre) ? creep
+   Call: (7) pancarte2(tigre, tigre) ? creep
+   Fail: (7) pancarte2(tigre, tigre) ? creep
+   Redo: (7) pancarte1(_G3538, _G3539) ? creep
+   Call: (8) contenu(_G3538) ? creep
+   Exit: (8) contenu(princesse) ? creep
+   Exit: (7) pancarte1(princesse, princesse) ? creep
+   Call: (7) pancarte2(princesse, princesse) ? creep
+   Call: (8) contenu(princesse) ? creep
+   Exit: (8) contenu(princesse) ? creep
+   Exit: (7) pancarte2(princesse, princesse) ? creep
+ T Exit: (6) salle1(princesse, princesse)
+   Exit: (6) salle1(princesse, princesse) ? creep
+X = Y, Y = princesse .
+
+
+/////////////////SALLE 2///////////////
+
+[trace]  ?- salle2(X,Y).
+   Call: (6) salle2(_G2960, _G2961) ? creep
+   Call: (7) pancarte3(_G2960, _G2961) ? creep
+   Exit: (7) pancarte3(princesse, tigre) ? creep
+^  Call: (7) not(pancarte4(princesse, tigre)) ? creep
+   Call: (8) pancarte4(princesse, tigre) ? creep
+   Exit: (8) pancarte4(princesse, tigre) ? creep
+^  Fail: (7) not(user:pancarte4(princesse, tigre)) ? creep
+   Redo: (6) salle2(_G2960, _G2961) ? creep
+   Call: (7) pancarte4(_G2960, _G2961) ? creep
+   Exit: (7) pancarte4(princesse, tigre) ? creep
+^  Call: (7) not(pancarte3(princesse, tigre)) ? creep
+   Call: (8) pancarte3(princesse, tigre) ? creep
+   Exit: (8) pancarte3(princesse, tigre) ? creep
+^  Fail: (7) not(user:pancarte3(princesse, tigre)) ? creep
+   Redo: (7) pancarte4(_G2960, _G2961) ? creep
+   Exit: (7) pancarte4(tigre, princesse) ? creep
+^  Call: (7) not(pancarte3(tigre, princesse)) ? creep
+   Call: (8) pancarte3(tigre, princesse) ? creep
+   Fail: (8) pancarte3(tigre, princesse) ? creep
+^  Exit: (7) not(user:pancarte3(tigre, princesse)) ? creep
+   Exit: (6) salle2(tigre, princesse) ? creep
+X = tigre,
+Y = princesse.
+
+***** QUESTIONS 9
+c'est la pancarte 2 qui dit la vérité
+
+** QUESTION 10
+
+/////////////////SALLE 3///////////////
+
+
+
