@@ -1,4 +1,4 @@
-
+module 	TP2 where
 -- alterne
 alterne :: Num a => [a] -> [a]
 alterne [] = []
@@ -17,5 +17,8 @@ combine f (x:xs) (y:ys) = (f x y):(combine f xs ys)
 -- triangle pascal
 
 pasPascal :: [Integer] -> [Integer]
-pasPascal xs = ZipWith (+) (xs) (repeat 1)
+pasPascal [] = []
+pasPascal (x:xs) = (x:((zipWith (+) xs (x:xs))))++[1]
 
+pascal ::[[Integer]]
+pascal = iterate pasPascal [1,1]

@@ -36,11 +36,12 @@ question 7
 x= (!!) l represente une fonction une fonction qui prend en argument une liste et retourne une fonction qui prend comme argument un entier
 -}
 
+{-
 -- la  longueur de liste
 longueur :: [a] -> Int
 longueur [] = 0
-longueur (x:xs) = somme ((map (x /) x):(longueur xs))
-
+longueur (x:xs) = somme (map )
+-}
 
 
 {-
