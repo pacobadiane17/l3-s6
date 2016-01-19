@@ -2,30 +2,25 @@
 import java.net.DatagramSocket;
 import java.net.DatagramPacket;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.util.Scanner;
+public class sendUDP {
 
-public class senUDP {
-
-	public void main( String [] args ) throws IOException{
+	public static void main( String [] args ) throws IOException{
 
 		DatagramPacket p; 
 		DatagramSocket s; 
-		
-		byte [] adresse = new byte[4] ;
-		/*adresse[0] =172;
-		adresse[1] =18;
-		adresse[2] =12;
-		adresse[3] =102;*/
-		int port = 1024 ;
-		int dst =2000;
-		byte array[] = new byte[2]; 
-		Array[0] = 1; 
-		Array[1] = 2; 
-		InetAddress dst = InetAddress.getByAddresse("localhost"); 
-		p = new DatagramPacket p(array, 2, dst, port); 
-		s = new DatagramSocket(); 
-		s.send(p); 
-		s.close(); 
-
+		String message;
+		Scanner scanner = new Scanner(System.in);
+		int dst =5000;
+		while(true){
+			message= scanner.nextLine();
+			InetAddress adresse = InetAddress.getByName("172.18.12.45"); 
+			p = new DatagramPacket(message.getBytes(), message.length(), adresse, dst); 
+			s = new DatagramSocket(); 
+			s.send(p); 
+			s.close(); 
+		}
 	}
 
 }

@@ -1,3 +1,4 @@
+
 import java.net.MulticastSocket;
 import java.net.DatagramPacket;
 import java.io.IOException;
@@ -5,25 +6,24 @@ import java.net.InetAddress;
 import java.util.Scanner;
 
 
-public class sendMulticast {
-	
+public class sendMulticast implements Runnable {
+
 	public static void main( String [] args ) throws Exception{
 
 		DatagramPacket packet;
 		Scanner scanner = new Scanner(System.in);
 		int ttl = 512;
 		String message;
-			int port = 7654 ;
-			MulticastSocket s = new MulticastSocket(port); 
+		while(true){
+			message=scanner.nextLine();
+			MulticastSocket s = new MulticastSocket(7654); 
 			InetAddress group = InetAddress.getByName("224.0.0.1");
+			int port = 7654 ; 
+			packet = new DatagramPacket (message.getBytes(), message.length(), group, port);
+			s.send(packet,(byte)ttl); 
+			s.close(); 
+		}
 
-			while(true){
-				message=scanner.nextLine();
-			
-		
-				packet = new DatagramPacket (message.getBytes(), message.length(), group, port);
-				s.send(packet,(byte)ttl); 
-				s.close(); 
-		      }
 	}
+
 }
