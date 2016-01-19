@@ -1,4 +1,4 @@
-
+module 	TP2 where
 -- alterne
 alterne :: Num a => [a] -> [a]
 alterne [] = []
@@ -23,3 +23,4 @@ pascal ::[[Integer]]
 pascal = iterate pasPascal [1,1]
 
 
+-- courbe du dragon

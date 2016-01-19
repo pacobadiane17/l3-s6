@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+module TP1 where
+
+>>>>>>> 8c33fe8fe5a45639024e65b84fb76a3654637455
 somme ::[Int] -> Int
 somme[] = 0
 somme (x:xs) = x+somme(xs)
@@ -34,6 +39,7 @@ question 7
 x= (!!) l represente une fonction une fonction qui prend en argument une liste et retourne une fonction qui prend comme argument un entier
 -}
 
+<<<<<<< HEAD
 -- la  longueur de liste
 
 longueur :: [a] -> Int
@@ -45,3 +51,28 @@ longueur xs = somme ( map () xs)
 recursive :: (a -> a) -> a -> Integer -> [a]
 recursive f x 1 = x:[]
 resursive f x n = x:(recursive x:(recursive f x (n-1)) n)
+=======
+{-
+-- la  longueur de liste
+longueur :: [a] -> Int
+longueur [] = 0
+longueur (x:xs) = somme (map )
+-}
+
+
+{-
+--recursive
+recursive :: (a -> a) -> a -> Integer -> [a]
+recursive f x 0 = []
+recursive f x 1 = x:[]
+resursive f x n = x:(recursive f ((head((recursive f x (n-1))))) n)
+-}
+
+-- recursive avec iterate et take
+recursive' :: (a -> a) -> a -> Int -> [a]
+recursive' f x n = take n (iterate f x)
+
+--lister de 0 à n
+lister :: Int -> [Int]
+lister n = recursive' (1 +) 0 (n+1)
+>>>>>>> 8c33fe8fe5a45639024e65b84fb76a3654637455
