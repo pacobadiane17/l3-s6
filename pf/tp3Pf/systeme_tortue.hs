@@ -24,3 +24,10 @@ regles  '-' = "-"
 regles 'F' = "F-F++F-F"
 
 
+lsysteme :: Axiome -> Regles -> LSysteme
+lsysteme a r = iterate r a
+
+---	////////////// TORTUE//////////////////////
+
+
+

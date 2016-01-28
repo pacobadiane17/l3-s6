@@ -1,0 +1,38 @@
+module tortue where
+
+import Graphics.Gloss
+
+type EtatTortue = (Point, Float)
+
+type Config = (EtatTortue -- État initial de la tortue
+              ,Float      -- Longueur initiale d’un pas
+              ,Float      -- Facteur d’échelle
+              ,Float      -- Angle pour les rotations de la tortue
+              ,[Symbole]) -- Liste des symboles compris par la tortue
+
+
+etatInitial :: Config -> EtatTortue
+etatInitial (a,b,c,d,e) = a
+
+longueurPas :: Config -> Float
+longueurPas (a,b,c,d,e) = b
+
+facteurEchelle :: Config -> Float
+facteurEchelle (a,b,c,d,e) = c
+
+angle :: Config -> Float
+angle (a,b,c,d,e) = d
+
+symbolesTortue :: Config -> [Symbole]
+symbolesTortue (a,b,c,d,e) = e
+
+avance :: Config -> EtatTortue -> EtatTortue
+avance (a,b,c,d,e) ((x,y) angle) = (((x+b*(cos d),(y+b*(sin d)),angle)
+
+--- tourner a gauche
+tourneAGauche :: Config -> EtatTortue -> EtatTortue
+tournerAGauche c ((x,y) angle) = ((x,y),angle-90)
+
+--tourner à droite
+tourneADroite :: Config -> EtatTortue -> EtatTortue
+tournerADroite c ((x,y) angle) = ((x,y),angle+90)
