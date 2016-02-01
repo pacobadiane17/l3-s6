@@ -50,3 +50,7 @@ interpreteSymbole :: Config -> EtatDessin -> Symbole -> EtatDessin
 interpreteSymbole c (e,p) x  | x == '+' = ((tourneAGauche c e),p)
 							 | x == '-' = ((tourneADroite c e),p)
 							 | x =='F'  = ((avance c e),p)
+							 |otherwise = erro "erreur de symbole"
+
+interpreteMot :: Config -> Mot -> Picture
+interpreteMot
