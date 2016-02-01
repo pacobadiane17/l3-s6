@@ -1,4 +1,4 @@
-module Tortue where
+--module Tortue where
 
 import Graphics.Gloss
 
@@ -38,13 +38,15 @@ avance c ((x,y), ang) = (((x+(longueurPas c)*(cos (angle c))),(y+(longueurPas c)
 
 --- tourner a gauche
 tourneAGauche :: Config -> EtatTortue -> EtatTortue
-tourneAGauche c ((x,y),a) = ((x,y),((angle c)-90))
+tourneAGauche c ((x,y),a) = ((x,y),((angle c)+a))
 --tourner à droite
 tourneADroite :: Config -> EtatTortue -> EtatTortue
-tourneADroite c ((x,y),a) = ((x,y),((angle c)+90))
+tourneADroite c ((x,y),a) = ((x,y),((angle c)-a))
 
 filtreSymbolesTortue :: Config -> Mot -> Mot
 filtreSymbolesTortue c  m = [x | x<-m, x `elem` symbolesTortue c ]
 
 interpreteSymbole :: Config -> EtatDessin -> Symbole -> EtatDessin
-
+interpreteSymbole c (e,p) x  | x == '+' = ((tourneAGauche c e),p)
+							 | x == '-' = ((tourneADroite c e),p)
+							 | x =='F'  = ((avance c e),p)
