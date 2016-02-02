@@ -1,6 +1,9 @@
-module TP3 where
+{-
+	Pape Ibrahima BADIANE
+	Alexandre TROUCHAUD
+-}
 
--- L-sytème
+module LSysteme where
 
 type Symbole  = Char
 type Mot      = [Symbole]
@@ -25,9 +28,8 @@ regles 'F' = "F-F++F-F"
 
 
 lsysteme :: Axiome -> Regles -> LSysteme
-lsysteme a r = iterate r a
+lsysteme a r = iterate (motSuivant r )a
 
----	////////////// TORTUE//////////////////////
 
 
 
