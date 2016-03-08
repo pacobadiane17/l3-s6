@@ -1,0 +1,57 @@
+Lemma exo1( P Q :Prop): P -> (Q -> P).
+
+intros p.
+intros q.
+exact p.
+Qed.
+
+Lemma hilbertS ( A B C: Prop):
+(A -> B -> C) -> (A -> B) -> A -> C.
+intros abc.
+intros ab.
+intros a.
+apply abc.
+exact a.
+apply ab.
+apply a.
+Qed.
+
+Lemma exo2( P Q : Prop):
+P -> ( ~ P -> Q).
+intros p.
+intros q.
+generalize (q p).
+destruct 1.
+Qed.
+
+Lemma exo3 ( P Q R : Prop ) :
+(P -> Q) -> ((Q -> R) -> (P -> R)).
+intros pq.
+intros qr.
+intros p.
+apply qr.
+apply pq.
+apply p.
+Qed.
+
+Lemma exo4 ( P Q : Prop):
+(P -> Q ) ->( ~Q -> ~P).
+intros pq.
+intros q.
+intros np.
+apply q.
+apply pq.
+apply np.
+Qed.
+
+Require Import Classical.
+
+Lemma bottom_c (A : Prop):
+((A) -> False)->A.
+intros afalse.
+apply NNPP.
+Check NNPP.
+intros nna.
+apply afalse.
+
+
