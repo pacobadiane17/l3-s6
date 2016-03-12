@@ -1,0 +1,38 @@
+.data
+taille :
+	byte 10
+
+fichier dd 'foo.essai'
+bar    dd  'bar.essai'
+
+.bss
+buff :
+	.space 10
+.text
+.globl _start 
+
+_start:
+
+creation:
+	mov $8 , %eax
+	mov $fichier , %ebx
+	mov $1 , % ecx      ; lecture pour l'instant
+	int 0x80
+
+ouvrir_bar :
+	
+	mov $5 , %eax
+	mov $bar , %ebx
+	mov $buffer , %ecx
+	int 0x80
+
+id_foo_a_bar:
+	mov %eax, %ebx
+	mov $3 ,  %eax
+	mov $buff , %ecx
+	mov $taille , %edx	
+	int 0x80
+
+fin:    movq   $0,%rbx     
+        movq    $1,%rax     
+        int     $0x80
