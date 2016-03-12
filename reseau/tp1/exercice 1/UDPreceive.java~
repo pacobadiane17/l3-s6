@@ -2,7 +2,7 @@
 import java.net.DatagramSocket;
 import java.net.DatagramPacket;
 import java.io.*;
-//import java.net.InetAddress;
+import java.net.InetAddress;
 
 public class UDPreceive {
 	
@@ -11,7 +11,7 @@ public class UDPreceive {
 		DatagramSocket s; 
 		DatagramPacket p;
 		int i;
-		//InetAddress dst = InetAddress.getByName("172.18.12.45");
+		InetAddress dst = InetAddress.getByName("172.18.12.45");
 		s = new DatagramSocket(5000); 
 		p = new DatagramPacket(new byte[512],512); 
 		while(true){		

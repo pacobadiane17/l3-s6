@@ -15,7 +15,7 @@ public class sendUDP {
 		int dst =5000;
 		while(true){
 			message= scanner.nextLine();
-			InetAddress adresse = InetAddress.getByName("10.188.29.246"); 
+			InetAddress adresse = InetAddress.getByName("172.18.12.45"); 
 			p = new DatagramPacket(message.getBytes(), message.length(), adresse, dst); 
 			s = new DatagramSocket(); 
 			s.send(p); 
