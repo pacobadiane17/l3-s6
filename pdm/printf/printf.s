@@ -27,7 +27,7 @@ touteChaine:
 remplace:								#remplace %machin à la valeur quelle correpond
 
 
-inserer:
+inserer:  # appel de la fonction atoi()
 
 
 affiche :
