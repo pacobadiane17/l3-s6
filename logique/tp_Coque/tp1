@@ -47,11 +47,94 @@ Qed.
 Require Import Classical.
 
 Lemma bottom_c (A : Prop):
-((A) -> False)->A.
+((~A) -> False)->A.
 intros afalse.
 apply NNPP.
 Check NNPP.
 intros nna.
 apply afalse.
+apply nna.
+Qed.
+
+
+Lemma exo5 ( P Q : Prop) :
+(~Q -> ~P ) -> ( P -> Q).
+intros npnq.
+intros p.
+apply NNPP.
+Check NNPP.
+intros nnq.
+apply npnq.
+apply nnq.
+apply p.
+Qed.
+
+
+Lemma exo6 (P : Prop):  ~~ P -> P.
+intros nnp.
+apply NNPP.
+Check NNPP.
+apply nnp.
+Qed.
+
+Lemma exo7 ( P : Prop ): P -> ~~P.
+intros p.
+intros nnp.
+apply nnp.
+apply p.
+Qed.
+
+Lemma exo8 ( P Q R : Prop):( P -> (Q ->R )) ->(P /\ Q -> R).
+Proof.
+intros npr.
+intros pq.
+apply npr.
+destruct pq.
+apply H .
+apply pq.
+Qed.
+
+
+
+Lemma exo9 ( P Q R : Prop): 
+(P /\ Q -> R) -> ( P -> ( Q -> R)).
+Proof.
+intros pqr.
+intros p q.
+apply pqr.
+split.
+apply p.
+apply q.
+Qed.
+
+Lemma exo10 ( P : Prop): P /\ ~ P ->False.
+Proof.
+intros pnp.
+apply pnp.
+destruct pnp as [p np].
+apply p.
+Qed.
+
+Lemma exo11 ( P : Prop): False -> P /\ ~P.
+Proof.
+intros false.
+split.
+apply NNPP.
+intros nnp.
+apply false.
+intros np.
+apply false.
+Qed.
+
+
+Lemma exo12 ( P Q : Prop): 
+P \/ Q <-> ~(~P /\ ~Q).
+Proof.
+split.
+intros poq.
+intros nPetQ.
+apply nPetQ.
+destruct nPetQ as [np nq].
+apply nq.
 
 
