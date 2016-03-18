@@ -9,7 +9,7 @@ DatagramSocket socket;
 InetAddress destinataire;
 
 
-	public void senderDnsQuery(String message){
+	public static void senderDnsQuery(String message){
 
 		 try {
 		

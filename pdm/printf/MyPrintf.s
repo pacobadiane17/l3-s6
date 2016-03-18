@@ -18,9 +18,9 @@ Myprintf:
 lire_chaine:						# commencer d'abord par lire le contenu de %rdi
 
 		mov	 	$3 , %eax
-		movq	(%rdi),%rbx     # descripteur de fichier de rdi
+		movb	(%rdi),%bl     # descripteur de fichier de rdi
 
-touteChaine:
+
 
 		mov		$1,%edx       # la taille
 		mov 	$buff,%ecx    # stocke ce que tu as lu dans le buffer
@@ -48,9 +48,6 @@ inserer:
 		movq	%rsi , %rcx
 		mov		taille, %edx
 		
-		
-
-	
 affiche :
 		#ecrire dans la sortie standard
 		mov 	$4,%eax

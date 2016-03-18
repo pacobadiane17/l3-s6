@@ -1,9 +1,8 @@
 .data
-
-.text
-.globl main
-main :	
-		call Myprintf
+chaine:
+		.string ""
+entier :
+		.long 0
 
 .globl Myprintf
 .type Myprintf @function
@@ -11,29 +10,33 @@ Myprintf:
 
 lire_chaine:	# commencer d'abord par lire le contenu de %rdi
 		movb	(%rdi),%bl
-		cmp 	$37, %bl
+		inc 	%rdi
+		cmp 	$0, (%rdi)
+		je 		end
+		cmp 	$37, %bl       #compare avec le caractere le caractère spécial %
 		jne		affiche_chaine
-		je 		remplace
-
-remplace:
-		movb 	(%rsi), %dl
-		cmp		$0 , %dl
-		jne		affiche_entier
-
-affiche_entier:
+		add		$2, %rdi
+		cmp 	$37, %bl       #compare avec le caractere le caractère spécial %
+		je 		affiche_valeur
+		
+affiche_valeur:
 		mov 	$4,%eax
-		movb 	%dl,%ecx
-		mov		$1,%edx
+		mov 	$0,%ebx
+		mov 	%edi , entier
+		mov 	entier, %ecx
+		mov		$8,%edx
 		int 	$0x80
-		jmp		end
+		jmp		lire_chaine
 			
 affiche_chaine:
 		mov 	$4,%eax
-		mov 	$1,%ebx
-		mov 	$buff,%ecx
-		mov		$100,%edx
+		mov 	%bl, chaine
+		mov 	$0,%ebx  # sortie standard
+		mov 	chaine, %ecx
+		mov		$1,%edx  # taille
 		int 	$0x80
-		jmp		end
+		jmp		lire_chaine
+
 		
 end:
         mov   	$0,%ebx

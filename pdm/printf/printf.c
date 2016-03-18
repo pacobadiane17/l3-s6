@@ -3,6 +3,7 @@
 
 
 void Myprintf(char * , int64_t);
+
 int main(){
 	
 int64_t valeur = 10;
