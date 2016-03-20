@@ -6,9 +6,9 @@ void Myprintf(char * , int64_t);
 
 int main(){
 	
-int64_t valeur = 10;
+int64_t valeur = 49;
 
-Myprintf("la valeur %d \n:", valeur);
+Myprintf("la valeur : %d \n", valeur);
 
 return 0;
 }

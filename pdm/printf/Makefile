@@ -1,0 +1,1 @@
+gcc -sts=d=c99 printf.c Myprintf2.s && ./a.out
